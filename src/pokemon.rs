@@ -2,18 +2,19 @@ use core::fmt;
 use std::fmt::Display;
 
 
-pub mod p_type;
+pub mod poke_type;
 pub mod multiplier;
 
+pub use poke_type::PokemonTypes;
 pub use multiplier::Multiplier;
 
 pub enum DefenseType {
-	OneType(p_type::PokemonTypes),
-	TwoTypes(p_type::PokemonTypes, p_type::PokemonTypes)
+	OneType(poke_type::PokemonTypes),
+	TwoTypes(poke_type::PokemonTypes, poke_type::PokemonTypes)
 }
 
 impl DefenseType {
-	fn calculate_damage_multiplier(&self, attack_type: &p_type::PokemonTypes) -> Multiplier {
+	fn calculate_damage_multiplier(&self, attack_type: &poke_type::PokemonTypes) -> Multiplier {
 		match self {
 			Self::OneType(defense_type) => defense_type.calculate_damage_multiplier(attack_type),
 			Self::TwoTypes(defense_1, defense_2 ) => {
@@ -33,12 +34,12 @@ impl Display for DefenseType {
 }
 
 pub struct Fight {
-	pub attack_type: p_type::PokemonTypes,
+	pub attack_type: poke_type::PokemonTypes,
 	pub defensive_types: DefenseType,
 }
 
 impl Fight {
-	pub fn new(attack_type: p_type::PokemonTypes, defensive_types: DefenseType) -> Self{
+	pub fn new(attack_type: poke_type::PokemonTypes, defensive_types: DefenseType) -> Self{
 		Self {
 			attack_type, defensive_types
 		}
