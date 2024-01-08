@@ -97,10 +97,10 @@ impl Display for Effectivenes {
 	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
 		let message = match self {
 			Effectivenes::SuperEffective(_) => String::from("It's super effective!"),
-			Effectivenes::Regular(_) => String::from("regular damage"),
-			Effectivenes::NotVeryEffective(_) => String::from("Not very effective.."),
-			Effectivenes::HasNoEffect(_) => String::from("No efffect."),
+			Effectivenes::Regular(_) => String::from("regular damage."),
+			Effectivenes::NotVeryEffective(_) => String::from("Not very effective..."),
+			Effectivenes::HasNoEffect(_) => String::from("No efffect!"),
 		};
-		write!(f, "{message}. Multiplier = {}", self.get_multiplier())
+		write!(f, "{message} Multiplier = {}", self.get_multiplier())
 	}
 }

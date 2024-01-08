@@ -53,7 +53,11 @@ impl CentralPanel {
 				
 				self.create_combo_box("First defense type:", ui, DropdownSelect::Defense1);
 
-				self.create_combo_box("(opt) Second defense type:", ui, DropdownSelect::Defense2);
+				if self.selected_def1_type != type_gui::TypeGui::None {
+					self.create_combo_box("(opt) Second defense type:", ui, DropdownSelect::Defense2);
+				} else {
+					self.selected_def2_type = type_gui::TypeGui::None;
+				}
 			});
 			
 			self.create_spacing(ui, 40.0, 15.0);

@@ -13,6 +13,7 @@ pub fn run() -> Result<(), eframe::Error> {
 
 	let view_build = ViewportBuilder {
 		resizable: Some(false),
+		maximize_button: Some(false),
 		inner_size: Some(vec2(558.0, 230.0)),
 		..Default::default()
 	};
