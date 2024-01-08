@@ -1,16 +1,26 @@
 mod pokemon;
 
-use pokemon::{Fight, PokemonTypes};
+pub use pokemon::{Fight, PokemonTypes};
+
+const SEPARATOR: &str = "====================";
 
 pub fn example() {
 	fight_one_defense_type(PokemonTypes::Normal, PokemonTypes::Fighting);
 
+	println!("{SEPARATOR}");
+
 	fight_two_defense_type(PokemonTypes::Flying, PokemonTypes::Fighting, PokemonTypes::Normal);
+
+	println!("{SEPARATOR}");
 
 	fight_two_defense_type(PokemonTypes::Fighting, PokemonTypes::Flying, PokemonTypes::Normal);
 
+	println!("{SEPARATOR}");
+
 	fight_one_defense_type(PokemonTypes::Fighting, PokemonTypes::Flying);
 	
+	println!("{SEPARATOR}");
+
 	fight_one_defense_type(PokemonTypes::Fighting, PokemonTypes::Normal);
 }
 

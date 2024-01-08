@@ -1,7 +1,6 @@
 use core::fmt;
 use std::fmt::Display;
 
-
 pub mod poke_type;
 pub mod multiplier;
 
