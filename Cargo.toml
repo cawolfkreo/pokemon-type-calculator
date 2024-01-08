@@ -6,7 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-eframe = { version = "0.24", features = ["wgpu"]}
-wgpu = "^0.18"
+eframe = "0.24"
 log = "^0.4.20"
 env_logger = "^0.10.1"
