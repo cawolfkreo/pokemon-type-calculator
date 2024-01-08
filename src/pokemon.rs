@@ -98,7 +98,7 @@ impl Display for Effectivenes {
 		let message = match self {
 			Effectivenes::SuperEffective(_) => String::from("It's super effective!"),
 			Effectivenes::Regular(_) => String::from("regular damage"),
-			Effectivenes::NotVeryEffective(_) => String::from("Not very effective..."),
+			Effectivenes::NotVeryEffective(_) => String::from("Not very effective.."),
 			Effectivenes::HasNoEffect(_) => String::from("No efffect."),
 		};
 		write!(f, "{message}. Multiplier = {}", self.get_multiplier())
