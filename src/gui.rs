@@ -12,7 +12,6 @@ use central_panel::CentralPanel;
 use top_panel::TopPanel;
 
 pub fn run() -> Result<(), eframe::Error> {
-
 	let view_build = ViewportBuilder {
 		resizable: Some(false),
 		maximize_button: Some(false),
@@ -20,7 +19,7 @@ pub fn run() -> Result<(), eframe::Error> {
 		..Default::default()
 	};
 
-	let native_options = NativeOptions { 
+	let native_options = NativeOptions {
 		viewport: view_build,
 		..Default::default()
 	};
@@ -41,12 +40,12 @@ struct EffectivenesCalculatorApp {
 impl eframe::App for EffectivenesCalculatorApp {
 	fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
 		egui::TopBottomPanel::top("Options Bar").show(
-			ctx, 
+			ctx,
 			|ui| self.top_panel.display_top_panel(ui)
 		);
 
 		egui::CentralPanel::default().show(
-			ctx, 
+			ctx,
 			|ui| self.central_panel.display_central_panel(ui)
 		);
 	}
