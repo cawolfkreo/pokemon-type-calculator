@@ -4,10 +4,12 @@ use eframe::{egui, NativeOptions};
 use eframe::egui::{vec2, ViewportBuilder};
 
 mod type_gui;
-mod central_panel;
 mod empty_widget;
+mod top_panel;
+mod central_panel;
 
 use central_panel::CentralPanel;
+use top_panel::TopPanel;
 
 pub fn run() -> Result<(), eframe::Error> {
 
@@ -32,11 +34,17 @@ pub fn run() -> Result<(), eframe::Error> {
 
 #[derive(Default)]
 struct EffectivenesCalculatorApp {
+	top_panel: TopPanel,
 	central_panel: CentralPanel,
 }
 
 impl eframe::App for EffectivenesCalculatorApp {
 	fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+		egui::TopBottomPanel::top("Options Bar").show(
+			ctx, 
+			|ui| self.top_panel.display_top_panel(ui)
+		);
+
 		egui::CentralPanel::default().show(
 			ctx, 
 			|ui| self.central_panel.display_central_panel(ui)
