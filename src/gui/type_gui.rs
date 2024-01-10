@@ -32,11 +32,11 @@ impl TypeGui {
 	pub fn list_all_types() -> Vec<&'static str> {
 		vec![
 			"None",		"Bug",		"Dark",
-			"Dragon", 	"Electric", "Fairy",
+			"Dragon",	"Electric",	"Fairy",
 			"Fighting",	"Fire",		"Flying", 
 			"Ghost",	"Grass",	"Ground",
-			"ice",		"Normal",	"Poison",
-			"Psychic",  "Rock",		"Steel",
+			"Ice",		"Normal",	"Poison",
+			"Psychic",	"Rock",		"Steel",
 			"Water"
 		]
 	}
