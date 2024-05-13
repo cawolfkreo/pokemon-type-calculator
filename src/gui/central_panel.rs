@@ -1,4 +1,5 @@
-use std::{default::Default, str::FromStr};
+use std::default::Default;
+use std::str::FromStr;
 
 use eframe::egui::{ComboBox, Ui};
 use eframe::egui;
