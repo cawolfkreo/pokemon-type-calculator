@@ -104,3 +104,41 @@ impl Display for Effectivenes {
 		write!(f, "{message} Multiplier = {}", self.get_multiplier())
 	}
 }
+
+#[cfg(test)]
+pub mod test {
+	use super::*;
+
+	const EXPECTED_MULTI: Multiplier = Multiplier(2.0);
+
+	const EXPECTED_EFFECTIVENESS: Effectivenes = Effectivenes::SuperEffective(EXPECTED_MULTI);
+
+	#[test]
+	pub fn should_return_correct_multiplier() {
+		// Arrange
+		let test_effectiveness: Effectivenes = Effectivenes::new(EXPECTED_MULTI);
+
+		// Act
+		let act = test_effectiveness.get_multiplier();
+
+		// Assert
+		assert_eq!(act.0, EXPECTED_MULTI.0, "The received multiplier {act} is different from the expected {EXPECTED_MULTI}");
+	}
+
+	#[test]
+	pub fn should_show_the_right_effectiveness() {
+		// Arrange
+
+		// ACT
+		let test_effectiveness: Effectivenes = Effectivenes::new(EXPECTED_MULTI);
+
+		//Assert
+		match (EXPECTED_EFFECTIVENESS, test_effectiveness) {
+			(Effectivenes::HasNoEffect(_), Effectivenes::HasNoEffect(_)) => (),
+			(Effectivenes::NotVeryEffective(_), Effectivenes::NotVeryEffective(_)) => (),
+			(Effectivenes::Regular(_), Effectivenes::Regular(_)) => (),
+			(Effectivenes::SuperEffective(_), Effectivenes::SuperEffective(_)) => (),
+			(_, test_effectiveness) => panic!("The effectiveness received '{test_effectiveness}' is not the expected one: '{EXPECTED_EFFECTIVENESS}'"),
+		}
+	}
+}
